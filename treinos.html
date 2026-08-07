@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0c">
+    <title>Treinos | Fitness Zone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <a class="brand" href="index-static.html">
+            <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+            <span>
+                <strong>FITNESS</strong>
+                <small>ZONE</small>
+            </span>
+        </a>
+        <nav class="sidebar-nav" aria-label="Menu principal">
+            <a href="index-static.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="atividade.html">
+                <i class="fa-solid fa-person-running"></i>
+                <span>Atividade</span>
+            </a>
+            <a class="active" href="treinos.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Treinos</span>
+            </a>
+            <a href="alimentacao.html">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Alimentação</span>
+            </a>
+            <a href="calendario.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Calendário</span>
+            </a>
+            <a href="desafio.html">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Desafio 30 dias</span>
+            </a>
+        </nav>
+        <div class="sidebar-card">
+            <i class="fa-solid fa-droplet"></i>
+            <strong>Hidratação</strong>
+            <span>Não esqueça de beber água durante o dia.</span>
+        </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content">
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div>
+                <p class="eyebrow">PAINEL FITNESS</p>
+                <h1>Treinos</h1>
+            </div>
+            <div class="topbar-badge">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Seu progresso</span>
+            </div>
+        </header>
+        <section class="hero-panel">
+            <div>
+                <span class="pill"><i class="fa-solid fa-dumbbell"></i> Seus treinos</span>
+                <h2>Gerencie seus treinos</h2>
+                <p>Adicione, visualize e edite seus treinos em um só lugar.</p>
+            </div>
+            <div class="hero-ring" style="--progress: 60;">
+                <strong>0</strong>
+                <span>treinos cadastrados</span>
+            </div>
+        </section>
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                <div><span>Treinos cadastrados</span><strong id="workoutsCount">0</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <div><span>Treinos realizados</span><strong id="workoutsCompleted">0</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-clock"></i></div>
+                <div><span>Tempo total</span><strong id="workoutsTotalTime">0 min</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-chart-line"></i></div>
+                <div><span>Progresso</span><strong id="workoutsProgress">0%</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-fire"></i></div>
+                <div><span>Streak</span><strong id="streakCount">0</strong></div>
+            </article>
+        </section>
+
+        <section class="glass-card">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">METAS</span>
+                    <h2>Progresso semanal e mensal</h2>
+                </div>
+                <i class="fa-solid fa-bullseye"></i>
+            </div>
+            <div class="form-grid">
+                <label>
+                    Meta semanal
+                    <input id="weeklyGoalInput" type="number" min="0" placeholder="0 treinos" />
+                </label>
+                <label>
+                    Meta mensal
+                    <input id="monthlyGoalInput" type="number" min="0" placeholder="0 treinos" />
+                </label>
+            </div>
+            <div style="margin-top: 16px;">
+                <strong>Semana</strong>
+                <div class="progress-line"><span id="weeklyGoalFill"></span></div>
+                <small id="weeklyGoalText" class="muted">0 de 0 treinos concluídos</small>
+            </div>
+            <div style="margin-top: 18px;">
+                <strong>Mês</strong>
+                <div class="progress-line"><span id="monthlyGoalFill"></span></div>
+                <small id="monthlyGoalText" class="muted">0 de 0 treinos concluídos</small>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">GRÁFICO</span>
+                    <h2>Progresso nos últimos 7 dias</h2>
+                </div>
+                <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <div class="chart-wrap"><canvas id="workoutProgressChart"></canvas></div>
+        </section>
+
+        <section class="glass-card">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">FILTROS</span>
+                    <h2>Busque e filtre seus treinos</h2>
+                </div>
+                <i class="fa-solid fa-filter"></i>
+            </div>
+            <div class="filters">
+                <input id="workoutSearch" type="text" placeholder="Buscar por treino..." />
+                <select id="filterMuscle">
+                    <option value="">Todos os músculos</option>
+                    <option value="Pernas">Pernas</option>
+                    <option value="Costas">Costas</option>
+                    <option value="Peito">Peito</option>
+                    <option value="Ombro">Ombro</option>
+                    <option value="Braços">Braços</option>
+                </select>
+                <select id="filterDifficulty">
+                    <option value="">Todas as dificuldades</option>
+                    <option value="Iniciante">Iniciante</option>
+                    <option value="Intermediário">Intermediário</option>
+                    <option value="Avançado">Avançado</option>
+                </select>
+                <select id="filterDay">
+                    <option value="">Todas as rotinas</option>
+                    <option value="Segunda">Segunda</option>
+                    <option value="Terça">Terça</option>
+                    <option value="Quarta">Quarta</option>
+                    <option value="Quinta">Quinta</option>
+                    <option value="Sexta">Sexta</option>
+                    <option value="Sábado">Sábado</option>
+                    <option value="Domingo">Domingo</option>
+                </select>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Treino</th>
+                            <th>Categoria</th>
+                            <th>Músculo</th>
+                            <th>Dificuldade</th>
+                            <th>Rotina</th>
+                            <th>Exercícios</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="workoutTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="glass-card detail-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">MEUS TREINOS</span>
+                    <h2>Cadastre um novo treino</h2>
+                </div>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <form id="workoutForm" class="detail-form" action="#" method="post">
+                <input type="hidden" id="workoutId" name="workout_id" value="" />
+                <div class="form-grid">
+                    <label>
+                        Nome do treino
+                        <input id="inputWorkoutName" type="text" name="nome_treino" placeholder="Ex: Pernas" required />
+                    </label>
+                    <label>
+                        Categoria
+                        <select id="inputWorkoutCategory" name="categoria" required>
+                            <option value="Força">Força</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Mobilidade">Mobilidade</option>
+                        </select>
+                    </label>
+                    <label>
+                        Músculo principal
+                        <select id="inputWorkoutMuscle" name="musculo" required>
+                            <option value="Pernas">Pernas</option>
+                            <option value="Costas">Costas</option>
+                            <option value="Peito">Peito</option>
+                            <option value="Ombro">Ombro</option>
+                            <option value="Braços">Braços</option>
+                        </select>
+                    </label>
+                    <label>
+                        Dificuldade
+                        <select id="inputWorkoutDifficulty" name="dificuldade" required>
+                            <option value="Iniciante">Iniciante</option>
+                            <option value="Intermediário">Intermediário</option>
+                            <option value="Avançado">Avançado</option>
+                        </select>
+                    </label>
+                    <label>
+                        Duração (min)
+                        <input id="inputWorkoutDuration" type="number" name="duracao_treino" min="10" max="180" required />
+                    </label>
+                    <label>
+                        Exercícios (vírgulas)
+                        <textarea id="inputWorkoutExercises" name="exercicios" rows="3" placeholder="Ex: Agachamento, Leg press, Panturrilha"></textarea>
+                    </label>
+                </div>
+                <div class="field">
+                    <span>Dias da rotina</span>
+                    <div class="day-checkboxes" id="routineDaysGroup">
+                        <label><input type="checkbox" value="Segunda" />Segunda</label>
+                        <label><input type="checkbox" value="Terça" />Terça</label>
+                        <label><input type="checkbox" value="Quarta" />Quarta</label>
+                        <label><input type="checkbox" value="Quinta" />Quinta</label>
+                        <label><input type="checkbox" value="Sexta" />Sexta</label>
+                        <label><input type="checkbox" value="Sábado" />Sábado</label>
+                        <label><input type="checkbox" value="Domingo" />Domingo</label>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-muted hidden" type="button" id="cancelWorkoutEdit">Cancelar</button>
+                    <button class="btn btn-primary" id="workoutSubmitBtn" type="submit">Adicionar treino</button>
+                </div>
+            </form>
+        </section>
+        <footer class="footer">
+            <span>Fitness Zone © 2026</span>
+            <span>PHP + MySQL • sem login</span>
+        </footer>
+    </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

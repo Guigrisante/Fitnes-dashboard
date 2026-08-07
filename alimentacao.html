@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0c">
+    <title>Alimentação | Fitness Zone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <a class="brand" href="index-static.html">
+            <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+            <span>
+                <strong>FITNESS</strong>
+                <small>ZONE</small>
+            </span>
+        </a>
+        <nav class="sidebar-nav" aria-label="Menu principal">
+            <a href="index-static.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="atividade.html">
+                <i class="fa-solid fa-person-running"></i>
+                <span>Atividade</span>
+            </a>
+            <a href="treinos.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Treinos</span>
+            </a>
+            <a class="active" href="alimentacao.html">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Alimentação</span>
+            </a>
+            <a href="calendario.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Calendário</span>
+            </a>
+            <a href="desafio.html">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Desafio 30 dias</span>
+            </a>
+        </nav>
+        <div class="sidebar-card">
+            <i class="fa-solid fa-droplet"></i>
+            <strong>Hidratação</strong>
+            <span>Não esqueça de beber água durante o dia.</span>
+        </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content">
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div>
+                <p class="eyebrow">PAINEL FITNESS</p>
+                <h1>Alimentação</h1>
+            </div>
+            <div class="topbar-badge">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Seu progresso</span>
+            </div>
+        </header>
+        <section class="hero-panel">
+            <div>
+                <span class="pill"><i class="fa-solid fa-utensils"></i> Suas refeições</span>
+                <h2>Gerencie sua alimentação</h2>
+                <p>Adicione, visualize e controle suas refeições do dia.</p>
+            </div>
+            <div class="hero-ring" style="--progress: 50;">
+                <strong>0</strong>
+                <span>refeições hoje</span>
+            </div>
+        </section>
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div><span>Refeições hoje</span><strong id="mealsCount">0</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-fire"></i></div>
+                <div><span>Calorias hoje</span><strong id="caloriesTotal">0</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-drumstick-bite"></i></div>
+                <div><span>Proteínas</span><strong id="proteinTotal">0g</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-bread-slice"></i></div>
+                <div><span>Carbs</span><strong id="carbsTotal">0g</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-bottle-water"></i></div>
+                <div><span>Gorduras</span><strong id="fatTotal">0g</strong></div>
+            </article>
+        </section>
+
+        <section class="glass-card">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">FILTROS</span>
+                    <h2>Ver por tipo de refeição</h2>
+                </div>
+                <i class="fa-solid fa-filter"></i>
+            </div>
+            <div class="filters">
+                <select id="mealTypeFilter">
+                    <option value="">Todos os tipos</option>
+                    <option value="Café da manhã">Café da manhã</option>
+                    <option value="Almoço">Almoço</option>
+                    <option value="Jantar">Jantar</option>
+                    <option value="Lanches">Lanches</option>
+                </select>
+            </div>
+        </section>
+
+        <section class="glass-card">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">HISTÓRICO</span>
+                    <h2>Refeições do dia</h2>
+                </div>
+                <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <div class="table-wrap">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Refeição</th>
+                            <th>Tipo</th>
+                            <th>Calorias</th>
+                            <th>Proteínas</th>
+                            <th>Carbs</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mealTableBody"></tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="glass-card detail-section">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">ALIMENTAÇÃO</span>
+                    <h2>Adicionar nova refeição</h2>
+                </div>
+                <i class="fa-solid fa-plus"></i>
+            </div>
+            <form id="mealForm" class="detail-form" action="#" method="post">
+                <input type="hidden" id="mealId" name="meal_id" value="" />
+                <div class="form-grid">
+                    <label>
+                        Descrição
+                        <input id="inputMealDescription" type="text" name="descricao_refeicao" placeholder="Ex: Almoço saudável" required />
+                    </label>
+                    <label>
+                        Tipo
+                        <select id="inputMealType" name="tipo_refeicao" required>
+                            <option value="Café da manhã">Café da manhã</option>
+                            <option value="Almoço">Almoço</option>
+                            <option value="Jantar">Jantar</option>
+                            <option value="Lanches">Lanches</option>
+                        </select>
+                    </label>
+                    <label>
+                        Calorias
+                        <input id="inputMealCalories" type="number" name="calorias_refeicao" min="0" max="5000" required />
+                    </label>
+                    <label>
+                        Proteínas (g)
+                        <input id="inputMealProtein" type="number" name="proteinas" min="0" max="500" required />
+                    </label>
+                    <label>
+                        Carbs (g)
+                        <input id="inputMealCarbs" type="number" name="carbs" min="0" max="500" required />
+                    </label>
+                    <label>
+                        Gorduras (g)
+                        <input id="inputMealFat" type="number" name="gorduras" min="0" max="200" />
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-muted" type="button" id="cancelMealEdit">Cancelar</button>
+                    <button class="btn btn-primary" id="mealSubmitBtn" type="submit">Adicionar refeição</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="glass-card">
+            <div class="section-heading">
+                <div>
+                    <span class="eyebrow">SUGESTÕES</span>
+                    <h2>Refeições recomendadas</h2>
+                </div>
+                <i class="fa-solid fa-lightbulb"></i>
+            </div>
+            <div class="suggestion-list">
+                <article class="suggestion-card">
+                    <strong>Café da manhã equilibrado</strong>
+                    <p>Omelete de claras, aveia e fruta.</p>
+                    <button class="btn btn-muted suggestion-add" type="button" data-type="Café da manhã" data-description="Omelete de claras, aveia e fruta" data-calories="420" data-protein="28" data-carbs="45" data-fat="12">Adicionar</button>
+                </article>
+                <article class="suggestion-card">
+                    <strong>Almoço proteico</strong>
+                    <p>Frango grelhado, arroz integral e salada.</p>
+                    <button class="btn btn-muted suggestion-add" type="button" data-type="Almoço" data-description="Frango grelhado, arroz integral e salada" data-calories="520" data-protein="42" data-carbs="55" data-fat="14">Adicionar</button>
+                </article>
+                <article class="suggestion-card">
+                    <strong>Jantar leve</strong>
+                    <p>Salmão, legumes assados e batata doce.</p>
+                    <button class="btn btn-muted suggestion-add" type="button" data-type="Jantar" data-description="Salmão, legumes assados e batata doce" data-calories="480" data-protein="35" data-carbs="40" data-fat="18">Adicionar</button>
+                </article>
+                <article class="suggestion-card">
+                    <strong>Lanche energético</strong>
+                    <p>Iogurte com frutas, granola e mel.</p>
+                    <button class="btn btn-muted suggestion-add" type="button" data-type="Lanches" data-description="Iogurte com frutas, granola e mel" data-calories="320" data-protein="15" data-carbs="42" data-fat="10">Adicionar</button>
+                </article>
+            </div>
+        </section>
+        <footer class="footer">
+            <span>Fitness Zone © 2026</span>
+            <span>PHP + MySQL • sem login</span>
+        </footer>
+    </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

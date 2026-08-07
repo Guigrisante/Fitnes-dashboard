@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0c">
+    <title>Desafio 30 Dias | Fitness Zone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <a class="brand" href="index-static.html">
+            <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+            <span>
+                <strong>FITNESS</strong>
+                <small>ZONE</small>
+            </span>
+        </a>
+        <nav class="sidebar-nav" aria-label="Menu principal">
+            <a href="index-static.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="atividade.html">
+                <i class="fa-solid fa-person-running"></i>
+                <span>Atividade</span>
+            </a>
+            <a href="treinos.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Treinos</span>
+            </a>
+            <a href="alimentacao.html">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Alimentação</span>
+            </a>
+            <a href="calendario.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Calendário</span>
+            </a>
+            <a class="active" href="desafio.html">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Desafio 30 dias</span>
+            </a>
+        </nav>
+        <div class="sidebar-card">
+            <i class="fa-solid fa-droplet"></i>
+            <strong>Hidratação</strong>
+            <span>Não esqueça de beber água durante o dia.</span>
+        </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+    <main class="main-content">
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div>
+                <p class="eyebrow">PAINEL FITNESS</p>
+                <h1>Desafio 30 dias</h1>
+            </div>
+            <div class="topbar-badge">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Seu progresso</span>
+            </div>
+        </header>
+        <section class="hero-panel">
+            <div>
+                <span class="pill"><i class="fa-solid fa-trophy"></i> Desafio</span>
+                <h2>Faça o desafio 30 dias</h2>
+                <p>Acompanhe seu progresso diário e conquiste resultados.</p>
+            </div>
+            <div class="hero-ring" style="--progress: 55;">
+                <strong>0</strong>
+                <span>dias completados</span>
+            </div>
+        </section>
+        <section class="detail-section">
+            <div class="section-heading">
+                <span class="eyebrow">DESAFIO</span>
+                <h2>Adicionar meta do desafio</h2>
+            </div>
+            <form class="detail-form" action="#" method="post">
+                <label>
+                    Meta do desafio
+                    <input type="text" name="meta_desafio" placeholder="Ex: 30 minutos de treino" />
+                </label>
+                <button class="btn btn-primary" type="submit">Adicionar meta</button>
+            </form>
+        </section>
+        <footer class="footer">
+            <span>Fitness Zone © 2026</span>
+            <span>PHP + MySQL • sem login</span>
+        </footer>
+    </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
