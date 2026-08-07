@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0a0a0c">
+    <title>Dashboard | Fitness Zone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+        <a class="brand" href="index.html">
+            <span class="brand-mark"><i class="fa-solid fa-bolt"></i></span>
+            <span>
+                <strong>FITNESS</strong>
+                <small>ZONE</small>
+            </span>
+        </a>
+
+        <nav class="sidebar-nav" aria-label="Menu principal">
+            <a class="active" href="index.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="treinos.html">
+                <i class="fa-solid fa-dumbbell"></i>
+                <span>Treinos</span>
+            </a>
+            <a href="alimentacao.html">
+                <i class="fa-solid fa-utensils"></i>
+                <span>Alimentação</span>
+            </a>
+            <a href="calendario.html">
+                <i class="fa-solid fa-calendar-days"></i>
+                <span>Calendário</span>
+            </a>
+            <a href="atividade.html">
+                <i class="fa-solid fa-person-running"></i>
+                <span>Atividade</span>
+            </a>
+            <a href="desafio.html">
+                <i class="fa-solid fa-trophy"></i>
+                <span>Desafio 30 dias</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-card">
+            <i class="fa-solid fa-droplet"></i>
+            <strong>Hidratação</strong>
+            <span>Não esqueça de beber água durante o dia.</span>
+        </div>
+    </aside>
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+        <header class="topbar">
+            <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div>
+                <p class="eyebrow">PAINEL FITNESS</p>
+                <h1>Dashboard</h1>
+            </div>
+            <div class="topbar-badge">
+                <i class="fa-solid fa-heart-pulse"></i>
+                <span>Seu progresso</span>
+            </div>
+        </header>
+
+        <section class="hero-panel">
+            <div>
+                <span class="pill"><i class="fa-solid fa-fire"></i> Consistência gera resultado</span>
+                <h2>Olá, Guilherme!</h2>
+                <p>Acompanhe treinos, alimentação, peso, metas e o desafio de 30 dias em um único lugar.</p>
+            </div>
+        </section>
+
+        <section class="stats-grid">
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-dumbbell"></i></div>
+                <div><span>Treinos cadastrados</span><strong>0</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                <div><span>Dias treinados</span><strong>0</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-utensils"></i></div>
+                <div><span>Refeições hoje</span><strong>0</strong></div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                <div><span>Calorias hoje</span><strong>0</strong></div>
+            </article>
+        </section>
+
+        <section class="dashboard-grid">
+            <article class="glass-card chart-card">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">ÚLTIMOS 7 DIAS</span>
+                        <h2>Frequência de treinos</h2>
+                    </div>
+                    <i class="fa-solid fa-chart-column"></i>
+                </div>
+                <div class="chart-wrap"><canvas id="weeklyChart"></canvas></div>
+            </article>
+
+            <article class="glass-card chart-card">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">HISTÓRICO</span>
+                        <h2>Evolução do peso</h2>
+                    </div>
+                    <i class="fa-solid fa-arrow-trend-down"></i>
+                </div>
+                <div class="chart-wrap"><canvas id="weightChart"></canvas></div>
+            </article>
+
+            <article class="glass-card">
+                <div class="section-heading">
+                    <div>
+                        <span class="eyebrow">ATIVIDADES</span>
+                        <h2>Últimos registros</h2>
+                    </div>
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <span class="activity-dot"></span>
+                        <div>
+                            <strong>Treino de pernas</strong>
+                            <small>27/07/2026 • 45 min • 520 kcal</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-dot"></span>
+                        <div>
+                            <strong>Treino de costas</strong>
+                            <small>26/07/2026 • 40 min • 490 kcal</small>
+                        </div>
+                    </div>
+                    <div class="activity-item">
+                        <span class="activity-dot"></span>
+                        <div>
+                            <strong>Treino pelo calendário</strong>
+                            <small>25/07/2026 • 35 min • 420 kcal</small>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <footer class="footer">
+            <span>Fitness Zone © 2026</span>
+            <span>PHP + MySQL • sem login</span>
+        </footer>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<script src="js/app.js"></script>
+<script src="js/dashboard.js"></script>
+<script>
+window.dashboardData = {
+    weekLabels: ["21/07", "22/07", "23/07", "24/07", "25/07", "26/07", "27/07"],
+    weekValues: [1, 2, 1, 3, 2, 1, 2],
+    weightLabels: ["18/07", "21/07", "24/07", "27/07"],
+    weightValues: [79.0, 78.8, 78.7, 78.5]
+};
+</script>
+</body>
+</html>
